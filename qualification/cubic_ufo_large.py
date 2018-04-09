@@ -16,8 +16,8 @@ def surface(theta, phi):
         Vrot[i] = rotate(V[i], theta, phi)
     result = 0
     result += parallelogram(Vrot[1], Vrot[2], Vrot[3])
-    result += parallelogram(Vrot[1], Vrot[5], Vrot[8])
-    result += parallelogram(Vrot[1], Vrot[5], Vrot[6])
+    result += parallelogram(Vrot[1], Vrot[5], Vrot[2])
+    result += parallelogram(Vrot[1], Vrot[5], Vrot[3])
     return result
 
 def parallelogram(a, b, c):
@@ -40,10 +40,10 @@ for y in [-0.5, 0.5]:
             i += 1
 
 # plt.figure();
-# x = np.arange(m.pi / 4, m.pi /2, m.pi / 10)
+# x = np.arange(0, m.pi /4, m.pi / 100)
 # y = [surface(m.pi / 4, t) for t in x]
 # plt.plot(x, y)
-
+#
 # print surface(m.pi / 4, 0)
 
 T = int(raw_input())
@@ -59,7 +59,7 @@ for t in range(1, T + 1):
         phi = 0
     else:
         theta = m.pi / 4
-        lo, hi = m.pi/ 4, m.pi / 2
+        lo, hi = 0, m.pi / 4
         while (lo <= hi):
             mid = 0.5 * (lo + hi)
             S = surface(theta, mid)
@@ -74,4 +74,4 @@ for t in range(1, T + 1):
         xx, yy, zz = rotate((x,y,z), theta, phi)
         print xx, yy, zz
 
-    #plt.show();
+# plt.show();
